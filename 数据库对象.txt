@@ -1,0 +1,79 @@
+--查询表信息
+ 2 xxx_tables--包含表的基本描述信息和统计信息
+ 3 xxx_tab_columns--包含表中列的描述信息和统计信息
+ 4 xxx_all_tables--包含当前数据库所有的关系表和对象表信息
+ 5 xxx_tab_comments--包含所有表和视图的注释信息
+ 6 xxx_col_comments--包含所有表和视图的列注释信息
+ 7 xxx_tab_statistics--包含所有表和统计信息
+ 8 xxx_tab_col_statistics--包含所有表中列的统计信息
+ 9 xxx_encrypted_columns--包含表中加密列的信息以及加密算法信息
+10 xxx_unused_col_tabs--包含所有表中unused列信息
+11 --查询约束信息
+12 all_constraints--包含当前用户可以访问的所有约束定义信息
+13 user_constraints--包含当前用户拥有的所有约束的定义信息
+14 dba_constraints--包含当前数据库中所有约束的定义信息
+15 all_cons_columns--包含当前用户可以访问的约束列信息
+16 user_cons_columns--包含当前用户拥有的约束列的信息
+17 dba_cons_columns--包含当前数据库所有约束列的信息
+18 --查询索引信息
+19 xxx_indexes--包含索引的基本描述信息和统计信息
+20 xxx_ind_columns--包含索引列的描述信息
+21 xxx_ind_expressions--包含函数索引的描述信息
+22 xxx_ind_statistics--包含索引的优化统计信息
+23 index_stats--包含索引存储结构验证信息
+24 index_histogram--包含索引存储结构验证信息的柱状图
+25 --查询数据文件
+26 dba_data_files--包含数据库所有数据文件信息，包括数据文件所属的表空间，数据文件编号等
+27 dba_temp_files--包含数据库所有临时数据文件的信息
+28 dba_extents--包含所有表空间中己分配的区描述信息
+29 user_extents--包含当前用户所拥有的对象在所有表空间中己分配的区描述信息
+30 dba_free_space--包含表空间中空闲区的描述信息
+31 user_free_space--包含当前用户可访问的表空间中空闲区的描述信息
+32 v$datafile--包含从控制文件中获取的数据文件信息
+33 v$datafile_header--包含从数据文件头部获取的基本信息
+34 v$tempfile--包含所有临时数据文件的基本信息
+35 --查询表空间信息
+36 v$tablespace--包含从控制文件中获取的表空间名称和编号信息
+37 v$encrypted_tablespaces--包含所有加密表空间的名称及加密算法信息
+38 dba_tablespaces--包含数据库中所有表空间的信息
+39 user_tablespace--包含数据库中当前用户可以使用的表空间的信息
+40 dba_tablerspace_groups--包含临时表空间组及其包含的临时表空间信息
+41 dba_segments--包含所有表空间中段信息
+42 user_segments--包含数据库中当前用户可以使用的表空间中段信息
+43 dba_extents--所有表空间中区的信息
+44 user_extents--包含数据库当前用户可以使用的表空间中区的信息
+45 dba_temp_free_space包含每个临时表空间中己分配的空间和空闲空间的信息
+46 v$datafile--包含所有永久数据文件信息
+47 v$tempfile--包含所有临时数据文件的基本信息
+48 dba_data_files--包含所有永久数据文件及其所属表空间信息
+49 dba_temp_files--包含所有永久数据文件及其所属临时表空间信息
+50 v$temp_extent_map--包含所有本地管理的临时表空间中区的信息
+51 v$temp_space_header--包含临时数据文件中空间使用情况的信息
+52 dba_users--包含所有用户的默认永久表空间和默认临时表空间信息
+53 dba_ts_quotas--包含所有用户的表空间配额信息
+54 v$sort_segment--包含数据库实例的每个排序信息
+55 v$tempseg_usage--包含表空间中段的使用情况信息
+56 --查询用户信息
+57 dba_users         --提供用户的信息
+58 dba_roles         --显示数据库中所有角色
+59 dba_col_privs     --显示列级对象授权
+60 dba_role_privs    --显示用户及其角色
+61 dba_sys_privs     --显示被授予系统权限的用户
+62 dba_tab_privs     --显示用户及他们在表上的权限
+63 role_role_privs   --显示授予角色的角色
+64 role_sys_privs    --显示授予角色的系统权限
+65 role_tab_privs    --显示授予角色的表权限
+66 session_privs     --显示允许用户使用的权限
+67 session_roles     --显示当前允许用户使用的角色
+68 --查看重做日志文件信息
+69 v$log--包含从控制文件中获取的所有重做日志文件的基本信息
+70 v$logfile--包含重做日志文件及其成员文件的信息
+71 v$log_history--包含重做日志文件的历史信息
+72 --查询归档重做日志文件信息
+73 v$database--包含数据库是否处于归档以及是否启动手动归档的信息
+74 v$archived_log--包含从控制文件中获取的历史归档日志文件的信息
+75 v$archive_dest--包含所有归档目的地信息，如归档目的地状态等信息
+76 v$archive_processes--包含一个实例中所有归档进程的状态信息
+77 v$vbackup_redolog--包含归样日志文件的备份信息
+78 v$log--包含所有重做日志文件组信息，标识哪些重做日志组需要归档
+79 v$log_history--包含关于重帮日志文件的历史信息，如归档日志中scn的范围
