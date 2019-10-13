@@ -31,14 +31,14 @@ insert into book values (6,'财务分析','财务分析',47.53,'中国邮电','�
 insert into book values (7,'技术分析','技术分析',36.53,'中国邮电','技术分析');
 
 
-insert into students values(6,'卫少锋',28,46,'卫少锋是王八蛋');
-insert into students values(7,'卫少锋',28,46,'卫少锋是王八蛋');
-insert into students values(8,'卫少锋',28,46,'卫少锋是王八蛋');
+insert into students values(6,'卫少锋',28,46,'卫少锋');
+insert into students values(7,'卫少锋',28,46,'卫少锋');
+insert into students values(8,'卫少锋',28,46,'卫少锋');
 
 insert into students(id,name,score) values(9,'王五'56);
 
 
-UPDATE students set COMMENT='卫少锋是王八蛋' WHERE id=2 or id=3 or id=4 or id=5;
+UPDATE students set COMMENT='卫少锋' WHERE id=2 or id=3 or id=4 or id=5;
 
 select id,name,score,age from students where score>60 and age>30;
 
