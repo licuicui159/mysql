@@ -128,14 +128,13 @@ delete from  stu_info a where a.stu_id  in
 delete from  stu_info a where exists
 (select 1 from stu_info_1 b where a.stu_id = b.stu_id) ;
  
-delete/drop/truncate优缺点分析 
- delete  删除表数据 操作慢   高水位    记录日志
- drop     不会造成高水位   不记录日志  删除表结构以及表中所有信息
- truncate  截断表   快  不会造成高水位  不记录日志   只删除数据
+--delete/drop/truncate优缺点分析 
+ delete   操作慢    高水位        记录日志  删除表数据
+ drop              不会造成高水位 不记录日志 删除表结构以及表中所有信息
+ truncate 截断表快  不会造成高水位 不记录日志 只删除数据
 
  
---笛卡儿积
---一个叫 team 的表，里面只有一个字段name, 一共有4 条纪录，分别是a,b,c,d, 对应四个球对，现在四个球对进行比赛，用一条sql 语句显示所有可能的比赛组合
+--笛卡儿积：四个球队a,b,c,d,进行比赛，用一条sql 语句显示所有可能的比赛组合
 SELECT  * FROM team A
 LEFT OUTER JOIN TEAM B ON 1=1
 WHERE A.TEAM_NAME <> B.TEAM_NAME  --  <> 不等于
@@ -150,7 +149,6 @@ AccID ：科目代码，Occmonth ：发生额月份，DebitOccur ：发生额。
 from TestDB a 
 ,(select Occmonth,max(DebitOccur) Debit101ccur from TestDB where AccID='101' group by Occmonth) b
 where a.Occmonth=b.Occmonth and a.DebitOccur>b.Debit101ccur
-
 
 create table TestDB(
 AccID int,
@@ -191,15 +189,13 @@ insert into TestDB(AccID,Occmonth,DebitOccur) values(101,10,50);
 insert into TestDB(AccID,Occmonth,DebitOccur) values(101,11,100);
 insert into TestDB(AccID,Occmonth,DebitOccur) values(101,12,900);
 
-
 select a.*
 from TestDB a 
 ,(select Occmonth,max(DebitOccur) Debit101ccur from TestDB where AccID=101 group by Occmonth) b
 where a.Occmonth=b.Occmonth and a.DebitOccur>b.Debit101ccur
 
  
- 
- 5.面试题：怎么把这样一个表儿
+5.面试题：怎么把这样一个表儿
 year   month amount
 1991   1     1.1
 1991   2     1.2
@@ -234,7 +230,7 @@ insert into Test01(year1,month1,amount) values(1992,3,2.3);
 insert into Test01(year1,month1,amount) values(1992,4,2.4);
 
 
---练习查询Explain plan执行计划
+--练习查询执行计划 Explain plan
 --效率低，单表读5次，耗费高
 select year1, 
 (select amount from   Test01 m where month1=1   and m.year1=Test01.year1) as m1,
