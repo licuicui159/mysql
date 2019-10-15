@@ -392,7 +392,7 @@ mvcc多版本控制协议【innodb锁机制中 包含该机制】
     2、执行写操作多的表用 InnoDB
     3、临时表 ： MEMORY
 常用存储引擎及特点
-InnoDB	--写，事物	
+InnoDB	--写，事务， 行级锁，外籍an	
     1、支持行级锁
     2、支持外键、事务、事务回滚
     3、表字段和索引同存储在一个文件中
@@ -404,7 +404,7 @@ MyISAM--查询速度快
         1、表名.frm ：表结构
         2、表名.MYI : 索引文件(my index)
         3、表名.MYD : 表记录(my data)
-MEMORY--临时表
+MEMORY--临时表 内存型 存储的数据持久化要求不过
     1、表记录存储在内存中，效率高
     2、服务或主机重启，表记录清除，表结构存在
 
@@ -421,7 +421,6 @@ mysql数据存储路径
     create table memoryt (id int)engine=MEMORY;
     insert into memoryt values(1),(2);
     select * from memoryt;
-
 MySQL的用户账户管理:开启MySQL远程连接
     更改配置文件，重启服务！
         1、sudo su
@@ -606,6 +605,7 @@ MySQL调优
         6、避免使用 in 和 not in
             select id from t1 where id between 1 and 4;
         7、用具体字段代替 select * 
+
 
 1、聚合函数题：找出在本站发表的所有评论数量最多的10位用户及评论数，并按评论数从高到低排序
     select user_id,count(user_id) from comment
